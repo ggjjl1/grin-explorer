@@ -1,8 +1,7 @@
 from django.urls import path
 
-from .views import BlockList, BlocksByHeight, BlockDetail, OutputByCommit, Search
 from .charts import block_chart, fee_chart
-
+from .views import BlockList, BlocksByHeight, BlockDetail, OutputByCommit, Search
 
 urlpatterns = [
     path("", BlockList.as_view(), name="block-list"),

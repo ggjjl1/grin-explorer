@@ -4,63 +4,64 @@
 <html>
 
 <head>
-	<title>GrinExplorer</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="{% static "css/project.css" %}">
-	<link rel="stylesheet" href="{% static "css/style.css" %}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{% static "/images/favicon-32x32.png" %}">
-	<link rel="icon" type="image/png" sizes="96x96" href="{% static "/images/favicon-96x96.png" %}">
-	<!-- Load icon library -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-	{% block chart_loader_header %}{% endblock %}
+    <title>XCN-Explorer</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/project.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static '/images/favicon-96x96.png' %}">
+    <!-- Load icon library -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    {% block chart_loader_header %}{% endblock %}
 </head>
 
 <body>
-	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-			<a class="navbar-brand" href="/">
-				<img width="45" height="45" src="{% static "images/icons/logo_80x80.png" %}"
-					alt="Start Bootstrap Logo" />
-			</a>
-			<a class="text-dark mt-2" href="/">
-				<h2>GrinExplorer</h2>
-			</a>
-			<form class="col-md-4 ml-auto" method="get" action="/search">
-				<div class="input-group">
-					<input class="form-control py-2" type="search" name="q"
-						placeholder="Search by block hash, height or output">
-					<span class="input-group-append">
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="/">
+            <img width="45" height="45" src="{% static 'images/icons/logo_80x80.png' %}"
+                 alt="Start Bootstrap Logo"/>
+        </a>
+        <a class="text-dark mt-2" href="/">
+            <h2>XCN-Explorer</h2>
+        </a>
+        <form class="col-md-4 ml-auto" method="get" action="/search">
+            <div class="input-group">
+                <input class="form-control py-2" type="search" name="q"
+                       placeholder="Search by block hash, height or output">
+                <span class="input-group-append">
 						<button class="btn btn-outline-primary" type="button">
 							<i class="fa fa-search"></i>
 						</button>
 					</span>
-				</div>
-			</form>
-		</nav>
+            </div>
+        </form>
+    </nav>
 
-		{% block content %}{% endblock %}
-	</div>
+    {% block content %}{% endblock %}
+</div>
 
-	<br />
-	<br />
+<br/>
+<br/>
 
-	<footer>
-		<a href="https://grinexplorer.net/">GrinExplorer.net</a> is powered by <a
-		  href="https://github.com/mimblewimble/grin-explorer">grin-explorer</a> released under the GNU AGPL. Developed by <a href="https://hendi.io">@hendi</a>
-	</footer>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-	</script>
-	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
+<footer>
+    <a href="https://XCN-Explorer.net/">XCN-Explorer.net</a> is powered by <a
+        href="https://github.com/mimblewimble/grin-explorer">grin-explorer</a> released under the GNU AGPL. Developed by
+    <a href="https://hendi.io">@hendi</a>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
 </body>
 
 </html>

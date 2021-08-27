@@ -43,7 +43,7 @@ class Command(BaseCommand):
             data = self.rpc("get_tip")
         except json.decoder.JSONDecodeError:
             print("Decoding JSON failed (make sure to disable api_secret_path in grin-server.toml")
-            print("resp=%r" % resp.text)
+            # print("resp=%r" % resp.text)
             exit()
 
         height = data["height"]
@@ -71,7 +71,7 @@ class Command(BaseCommand):
             block_data = self.rpc("get_block", hash=hash, height=None, commit=None)
         except json.decoder.JSONDecodeError:
             print("Decoding JSON failed (make sure to set `archive_mode=true` in grin-server.toml")
-            print("resp=%r" % resp.text)
+            # print("resp=%r" % resp.text)
             exit()
 
         try:

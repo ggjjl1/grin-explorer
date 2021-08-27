@@ -1,12 +1,12 @@
 from django.db.models import Count, Max, Min
 from django.db.models.functions import TruncDay
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 
 from blockchain.models import Block, Output
 from chartit import DataPool, Chart
 
 
-def block_chart(_):
+def block_chart(request):
     blockpivotdata = DataPool(
         series=[{
             'options': {
@@ -100,10 +100,10 @@ def block_chart(_):
             },
         }
     )
-    return render_to_response('explorer/block_chart.html', {'blockchart': blockpivcht})
+    return render(request, 'explorer/block_chart.html', {'blockchart': blockpivcht})
 
 
-def fee_chart(_):
+def fee_chart(request):
     feepivotdata = DataPool(
         series=[{
             'options': {
@@ -147,4 +147,4 @@ def fee_chart(_):
             'credits': {
                 'enabled': False}},
     )
-    return render_to_response('explorer/fee_chart.html', {'feechart': feepivcht})
+    return render(request, 'explorer/fee_chart.html', {'feechart': feepivcht})

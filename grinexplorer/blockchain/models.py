@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
+
+# from django.contrib.postgres.fields import ArrayField
 
 SECOND_POW_EDGE_BITS = 29
 BASE_EDGE_BITS = 24
@@ -7,7 +8,7 @@ BASE_EDGE_BITS = 24
 
 def graph_weight(edge_bits):
     # Compute weight of a graph as number of siphash bits defining the graph
-    return (2 << edge_bits-BASE_EDGE_BITS)*edge_bits
+    return (2 << edge_bits - BASE_EDGE_BITS) * edge_bits
 
 
 def scaled_difficulty(hash, graph_weight):
@@ -68,7 +69,7 @@ class Block(models.Model):
 
     edge_bits = models.IntegerField()
 
-    cuckoo_solution = ArrayField(models.BigIntegerField())
+    # cuckoo_solution = ArrayField(models.BigIntegerField())
 
     difficulty = models.BigIntegerField()
 

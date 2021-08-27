@@ -1,11 +1,10 @@
-from django.db.models import Count, Sum, Max, Min
-from django.db.models.functions import TruncDay
-from django.views.generic import ListView, DetailView, TemplateView
-from django.urls import reverse
+from chartit import DataPool, Chart
+from django.db.models import Count, Max, Min
 from django.shortcuts import redirect
+from django.urls import reverse
+from django.views.generic import ListView, DetailView, TemplateView
 
 from blockchain.models import Block, Input, Output
-from chartit import DataPool, Chart
 
 
 class BlockList(ListView):
@@ -13,8 +12,8 @@ class BlockList(ListView):
     context_object_name = "block_list"
 
     queryset = Block.objects.order_by("-timestamp") \
-                            .select_related("previous") \
-                            .prefetch_related("output_set", "kernel_set", "input_set")
+        .select_related("previous") \
+        .prefetch_related("output_set", "kernel_set", "input_set")
     paginate_by = 20
 
     def get_block_chart(self):
@@ -173,16 +172,16 @@ class BlockList(ListView):
                 "total_difficulty").last().height * 60
 
             context["competing_chains"] = Block.objects \
-                                               .filter(height__gte=context["highest_block"].height - 60) \
-                                               .values("height") \
-                                               .annotate(cnt=Count("height")) \
-                                               .aggregate(Max("cnt"))["cnt__max"]
+                .filter(height__gte=context["highest_block"].height - 60) \
+                .values("height") \
+                .annotate(cnt=Count("height")) \
+                .aggregate(Max("cnt"))["cnt__max"]
             context["forked_at"] = Block.objects \
-                                        .filter(height__gte=context["highest_block"].height - 60) \
-                                        .values("height") \
-                                        .annotate(cnt=Count("height")) \
-                                        .filter(cnt__gt=1) \
-                                        .aggregate(Min("height"))["height__min"]
+                .filter(height__gte=context["highest_block"].height - 60) \
+                .values("height") \
+                .annotate(cnt=Count("height")) \
+                .filter(cnt__gt=1) \
+                .aggregate(Min("height"))["height__min"]
 
             context['thumb_chart_list'] = [
                 self.get_block_chart(), self.get_fee_chart()]
@@ -196,7 +195,7 @@ class BlockDetail(DetailView):
     template_name = "explorer/block_detail.html"
     context_object_name = "blk"
     queryset = Block.objects.select_related("previous") \
-                            .prefetch_related("output_set", "kernel_set", "input_set")
+        .prefetch_related("output_set", "kernel_set", "input_set")
 
 
 class OutputByCommit(TemplateView):
@@ -211,7 +210,7 @@ class OutputByCommit(TemplateView):
 
     def get(self, request, commit):
         outputs = Output.objects.filter(commit=commit) \
-                                .order_by("-id")
+            .order_by("-id")
 
         if len(outputs) == 0:
             return redirect("%s?q=%s" % (reverse("search"), commit),
